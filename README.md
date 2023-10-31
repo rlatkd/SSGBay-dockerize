@@ -10,10 +10,10 @@
 
 docker network create mynetwork
 
-docker image build -t react -f Dockerfile-react .
-docker image build -t flask -f Dockerfile-flask .
-docker image build -t mysql -f Dockerfile-mysql .
+docker image build -t myreact -f Dockerfile-react .
+docker image build -t myflask -f Dockerfile-flask .
+docker image build -t mymysql -f Dockerfile-mysql .
 
-docker container run -d --network mynetwork --name mysql mysql
-docker container run -d -p 5000:5000 --network mynetwork --name flask flask
-docker container run -d -p 3000:80 --network mynetwork --name react react
+docker container run -d --network mynetwork --name mysql mymysql
+docker container run -d -p 5000:5000 --network mynetwork --name flask myflask
+docker container run -d -p 3000:80 --network mynetwork --name react myreact
