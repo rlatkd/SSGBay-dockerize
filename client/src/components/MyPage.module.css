@@ -1,0 +1,41 @@
+.outerContainer {
+  display: flex;
+  justify-content: center;
+}
+.myPageContainer {
+  display: flex;
+  min-width: 1024px;
+  max-width: 1024px;
+}
+.selectedTab {
+  font-weight: bold;
+}
+.contentContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* 요소들이 화면을 벗어나면 다음 줄로 넘어감 */
+  gap: 20px; /* 카드 사이의 간격 */
+  /* justify-content: start;
+  max-width: 1024px;
+    min-width: 1024px;
+    gap: 70px; */
+}
+.menus {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100vh;
+  border-right: 1px solid rgb(148, 148, 148);
+  padding-right: 30px;
+}
+
+
+.pageTitle {
+  font-weight: 600;
+}
+
+.menu:hover {
+  cursor: pointer;
+}
