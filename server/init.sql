@@ -1,5 +1,3 @@
-
-
 CREATE SCHEMA IF NOT EXISTS `auction` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `auction` ;
 
@@ -11,7 +9,9 @@ CREATE TABLE IF NOT EXISTS `auction`.`user` (
   `phone` VARCHAR(50) NOT NULL,
   `password` VARCHAR(50) NOT NULL,
   `nickname` VARCHAR(50) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`)
+  )
+
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -35,7 +35,9 @@ CREATE TABLE IF NOT EXISTS `auction`.`item` (
     FOREIGN KEY (`user_id`)
     REFERENCES `auction`.`user` (`id`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON UPDATE CASCADE
+ )
+
 ENGINE = InnoDB
 AUTO_INCREMENT = 32
 DEFAULT CHARACTER SET = utf8mb4
@@ -57,12 +59,13 @@ CREATE TABLE IF NOT EXISTS `auction`.`history` (
     REFERENCES `auction`.`item` (`id`),
   CONSTRAINT `fk_history_user1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `auction`.`user` (`id`))
+    REFERENCES `auction`.`user` (`id`)
+ )
+
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 create user 'user1'@'%' identified by '1234';
-
 GRANT ALL PRIVILEGES ON auction.* TO user1@'%';

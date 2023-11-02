@@ -11,7 +11,6 @@ import {
 function Header() {
   const [keyword, setKeyword] = useState("");
   const isLogin = localStorage.getItem('token'); // 토큰이 존재하는지 확인
-
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -21,6 +20,7 @@ function Header() {
     localStorage.removeItem('userId');
     navigate("/");
   };
+
   const handlerMyPage = () => {
     if (isLogin) {
       navigate('/mypage');
@@ -42,14 +42,15 @@ function Header() {
       }
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault(); // onSubmit 시 새로고침 기본동작 방지
     // 유효성 검사 추가할 것.
     console.log("here")
-    setKeyword(''); // Reset keyword to clear the search input
+    setKeyword('');
     navigate('/', { state: { query: keyword } });
-    
   };
+
   const handleKeyword = (event) => {
     setKeyword(event.target.value);
     console.log(`키워드상태관리: ${event.target.value}`);
@@ -94,8 +95,6 @@ function Header() {
             <button className={styles.tabLink} onClick={handlerMyPage}>
             <AiOutlineUser/>마이페이지
             </button>
-            
-          
         </div>
       </div>
     </div>

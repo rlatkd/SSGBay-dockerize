@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRef, useState } from "react";
 import { Link , useNavigate} from "react-router-dom";
 
+
 function SignupPage() {
     const navigate = useNavigate();
     const [ formData, setFormData ] = useState({
@@ -98,7 +99,6 @@ function SignupPage() {
     return (
       <>
         <div className="signupbox">
-            {/* 네모난 큰 박스 */}
             <div className="signupboxtitle">
                 <h1>회원가입</h1>
             </div>
@@ -112,7 +112,6 @@ function SignupPage() {
             <div style={{textAlign: 'center'}}>
               <Link to='/'><button className="signupbutton" type="submit" onClick={handlerClick}>가입하기</button></Link>
             </div>
-
         </div>
       </>
     );

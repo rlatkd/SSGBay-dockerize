@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import styles from "../components/MyPage.module.css";
+import styles from "../styles/MyPage.module.css";
 import axios from "axios";
-import Card from "../components/Card";
+import Card from "../styles/Card";
+
 
 function MyPage() {
   const [curTab, setCurTab] = useState("PurchaseHistory");
@@ -14,7 +15,7 @@ function MyPage() {
       const userId = localStorage.getItem('userId');
   
       axios
-        .get(`http://127.0.0.1:5000/mypage/buyitem?id=${userId}`, {  // 엔드포인트 변경
+        .get(`http://127.0.0.1:5000/mypage/buyitem?id=${userId}`, { 
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -30,7 +31,7 @@ function MyPage() {
       const userId = localStorage.getItem('userId');
   
       axios
-        .get(`http://127.0.0.1:5000/mypage/myitem?id=${userId}`, {  // 엔드포인트 변경
+        .get(`http://127.0.0.1:5000/mypage/myitem?id=${userId}`, {  경
           headers: {
             'Authorization': `Bearer ${token}`
           }

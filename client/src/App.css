@@ -5,28 +5,34 @@
 body {
   margin: auto;
 }
+
 a {
   text-decoration-line: none;
   color: black;
 }
+
 button:hover {
   cursor: pointer;
 }
+
 input {
   border: 1px solid rgb(105, 105, 105);
   outline: none;
   box-shadow: none;
   border-color: inherit;
 }
+
 button {
   border: none;
   background-color: transparent;
 }
+
 li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 ul {
   padding: 0;
 }
@@ -41,7 +47,7 @@ ul {
   border-radius: 20px;
   overflow: hidden;
   background-color: white;
-  }
+}
 
 .signupboxtitle {
   height: 8rem;

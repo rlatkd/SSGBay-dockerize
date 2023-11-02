@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "../components/DetailPage.module.css";
+import styles from "../styles/DetailPage.module.css";
 
 
 function DetailPage() {
@@ -9,7 +9,6 @@ function DetailPage() {
   const [price, setPrice] = useState(0);
   const [data, setData] = useState(null); 
  
-
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:5000/detail/${id}`)
@@ -21,7 +20,7 @@ function DetailPage() {
       });
   }, [id]); 
 
-  const handleSubmit = (e) => {
+  const handlerSubmit = (e) => {
     e.preventDefault();
     console.log('입력한 입찰가:',price);
     console.log('이미 입찰된 가격:',data.price);
@@ -32,6 +31,7 @@ function DetailPage() {
       alert('본인 물건은 입찰 불가능입닌다.');
       return; // 입찰을 막습니다.
     }
+    
     if (price <= data.price) {
       alert('현재 낙찰 예정 금액 이하로는 입찰할 수 없습니다.');
       return; // 입찰을 막습니다.
@@ -52,7 +52,7 @@ function DetailPage() {
       });
   };
 
-  const handlePrice = (e) => {
+  const handlerPrice = (e) => {
     setPrice(e.target.value);
   };
 
@@ -88,12 +88,12 @@ function DetailPage() {
           <div className={styles.price}>현재 낙찰 예정 금액 : {data.price} 원</div>
           <div className={styles.date}>경매 시작 시간: {data.startTime}</div>
           <div className={styles.date}>경매 만료 시간: {data.endTime}</div>
-          <form className={styles.form} onSubmit={handleSubmit}>
+          <form className={styles.form} onSubmit={handlerSubmit}>
             <input
               className={styles.input}
               type="number"
               value={price}
-              onChange={handlePrice}
+              onChange={handlerPrice}
             />
             <button className={styles.bidButton}>입찰</button>
           </form>
@@ -108,7 +108,6 @@ function DetailPage() {
           <div className={styles.userInfo}>경매자</div>
           <div>
             <div>ID: {data.user_id}</div>
-            {/* Add more user details if needed */}
           </div>
         </div>
       </div>

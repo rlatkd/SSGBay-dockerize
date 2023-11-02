@@ -1,14 +1,13 @@
-// MainPage.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "../components/MainPage.module.css";
-import Card from "../components/Card";
+import styles from "../styles/MainPage.module.css";
+import Card from "../styles/Card";
 import { useLocation } from "react-router-dom";
+
+
 function MainPage() {
   const location = useLocation();
   const query = location.state?.query.trim() || '';
-
-  
   //키워드 검색시, query에 해당 키워드 할당됨.
   // const query = new URLSearchParams(location.search).get("query");
 
@@ -21,7 +20,7 @@ function MainPage() {
   useEffect(() => {
       const queryString = `sort=${sortMethod}&keyword=${query}`;
       axios
-        .get(`http://127.0.0.1:5000?${queryString}`) //Mock데이터로 테스트
+        .get(`http://127.0.0.1:5000?${queryString}`) 
         .then((itemData) => {
           console.log(itemData.data)
           setItemDataList(itemData.data);
@@ -30,23 +29,21 @@ function MainPage() {
       .catch((error) => {
         console.error(error);
       });
-    //} 
   }, [sortMethod, query]);
 
   // 게시글 정렬 이벤트
-  const handleSortChange = (e) => {
+  const handlerSortChange = (e) => {
     console.log(`${e.target.value}순으로 정렬합니다.`);
     setSortMethod(e.target.value);
   };
 
   return (
     <div className={styles.mainContainer}>
-      {/* 누르면 옵션 나오는 버튼 */}
       <div className={styles.dropDownContainer}>
         <select
           className={styles.dropDown}
           id="sort"
-          onChange={handleSortChange}
+          onChange={handlerSortChange}
         >
           <option value="date">최신순</option>
           <option value="priceDown">높은 가격순</option>
@@ -54,7 +51,6 @@ function MainPage() {
         </select>
       </div>
       <div className={styles.cardContainer}>
-        {/* api완성 시, dummyData => itemDataList로 변경 */}
         {itemDataList.map((cardInfo) => (
           <Card key={cardInfo.id} cardInfo={cardInfo} />
         ))}
