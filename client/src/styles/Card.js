@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 
+
 function Card({ cardInfo }) {
   console.log(cardInfo + 'd')
   const { id } = cardInfo;

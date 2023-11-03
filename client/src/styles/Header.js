@@ -8,6 +8,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 
+
 function Header() {
   const [keyword, setKeyword] = useState("");
   const isLogin = localStorage.getItem('token'); // 토큰이 존재하는지 확인
@@ -43,7 +44,7 @@ function Header() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // onSubmit 시 새로고침 기본동작 방지
+    e.preventDefault();
     console.log("here")
     setKeyword('');
     navigate('/', { state: { query: keyword } });
