@@ -27,11 +27,6 @@ function LoginPage() {
       });
       console.log(response)
       if (response.ok) {
-        // const data = await response.json();
-        // const token = data.token;
-        // const userId = data.userId;
-        // console.log(token, userId)
-
         const data = await response.json();
 
         // 토큰과 ID를 받아옴

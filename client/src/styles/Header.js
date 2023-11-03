@@ -1,7 +1,7 @@
-import { Link, useNavigate, useLocation  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { RiAuctionFill } from "react-icons/ri";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AiOutlineSearch,
   AiOutlineShoppingCart,
@@ -12,7 +12,6 @@ function Header() {
   const [keyword, setKeyword] = useState("");
   const isLogin = localStorage.getItem('token'); // 토큰이 존재하는지 확인
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleLogout = () => {
     // 로그아웃 시 localStorage의 토큰 제거
@@ -45,7 +44,6 @@ function Header() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // onSubmit 시 새로고침 기본동작 방지
-    // 유효성 검사 추가할 것.
     console.log("here")
     setKeyword('');
     navigate('/', { state: { query: keyword } });
@@ -65,7 +63,6 @@ function Header() {
             isLogin  ? (<button onClick={handleLogout}>로그아웃</button>) : 
             (<button><Link to='/login'>로그인/회원가입</Link></button>)
           }
-
           </div>
         </div>
       </div>

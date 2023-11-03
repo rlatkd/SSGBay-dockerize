@@ -17,8 +17,8 @@
   padding: 20px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; /* 요소들이 화면을 벗어나면 다음 줄로 넘어감 */
-  gap: 20px; /* 카드 사이의 간격 */
+  flex-wrap: wrap; 
+  gap: 20px; 
 }
 
 .menus {

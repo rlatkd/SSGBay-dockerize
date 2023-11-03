@@ -29,12 +29,12 @@ function DetailPage() {
     
     if (data.user_id == id) { 
       alert('본인 물건은 입찰 불가능입닌다.');
-      return; // 입찰을 막습니다.
+      return; 
     }
     
     if (price <= data.price) {
       alert('현재 낙찰 예정 금액 이하로는 입찰할 수 없습니다.');
-      return; // 입찰을 막습니다.
+      return; 
     } else {
       const koreanFormattedDate = formatDate(data.endTime);
       alert('낙찰 성공! 낙찰날짜는 ' + koreanFormattedDate + ' 입니다. ');

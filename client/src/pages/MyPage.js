@@ -31,7 +31,7 @@ function MyPage() {
       const userId = localStorage.getItem('userId');
   
       axios
-        .get(`http://127.0.0.1:5000/mypage/myitem?id=${userId}`, {  경
+        .get(`http://127.0.0.1:5000/mypage/myitem?id=${userId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
