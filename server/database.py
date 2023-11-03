@@ -24,7 +24,6 @@ def idCheck(user_id, pwd):
             sql = "SELECT * FROM user " + "where id = %s and password = %s;"
             cursor.execute(sql, [user_id, pwd])
             result = cursor.fetchall()
-            
             return result
         
     except Exception as e:
@@ -38,7 +37,6 @@ def getMyItem(user_id):
             sql = "SELECT * FROM item where user_id = %s;"
             cursor.execute(sql, [user_id])
             result = cursor.fetchall()
-            
             return result
         
     except Exception as e:
@@ -48,6 +46,7 @@ def getMyItem(user_id):
 def getItems(sort, keyword):
     try:
         query = "SELECT * FROM item"
+        
         if keyword:
             query += f" WHERE name LIKE '%{keyword}%' OR content LIKE '%{keyword}%'"
                 
@@ -67,9 +66,7 @@ def getItems(sort, keyword):
             cursor.close()
             
         if not itemInfo:
-            
             return [], 200, { 'Content-Type': 'application/json'}
-
         return itemInfo, 200, { 'Content-Type': 'application/json'}
 
     except Exception as e:
@@ -84,7 +81,6 @@ def getItemDetails(id):
             cursor.execute(sql, (id, ))
             itemDetails = cursor.fetchone()
             cursor.close()
-    
         return itemDetails, 200, { 'Content-Type': 'application/json'}
 
     except Exception as e:
@@ -99,7 +95,6 @@ def addUserInfo(userId, userPwd, userNickname, userPhone):
             print(cursor.execute(sql))
             userInfo = cursor.fetchall()
             con.commit()
-        
         return userInfo, 200, { 'Content-Type': 'application/json'}    
             
     except Exception as e:
@@ -113,7 +108,6 @@ def getMyItem(user_id):
             sql = "SELECT * FROM item where user_id = %s;"
             cursor.execute(sql, [user_id])
             result = cursor.fetchall()
-            
             return result
         
     except Exception as e:
@@ -128,7 +122,6 @@ def getBuyItem(user_id):
             cursor.execute(sql, [user_id])
             result = cursor.fetchall()
             print(result)
-            
             return result
         
     except Exception as e:
@@ -143,7 +136,6 @@ def addItemInfo(itemName, itemContent, itemPrice, itemImage, endTime, userId):
             sql = "INSERT INTO item (name, content, price, image, endTime, startTime, user_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             cursor.execute(sql, (itemName, itemContent, itemPrice, itemImage, endTime, now, userId))
             con.commit()
-
     return "경매물품 등록 성공", 200
      
 
@@ -155,14 +147,13 @@ def getItemDetails(id):
             cursor.execute(sql, (id, ))
             itemDetails = cursor.fetchone()
             cursor.close()
-            
         return itemDetails, 200, { 'Content-Type': 'application/json'}
 
     except Exception as e:
         print(e)
         
         
-def updatePrice(id, price, new_price):
+def updatePrice(id, new_price):
     try:
         with connect(**connectionString) as con:
             cursor = con.cursor()
@@ -170,10 +161,8 @@ def updatePrice(id, price, new_price):
             cursor.execute(sql, (new_price,id))
             con.commit()
             cursor.close()
-            
             return {"message": "입찰되었습니다."}, 200
 
     except Exception as e:
         print(e)
-        
         return {"message": "가격 업데이트에 실패했습니다."}, 500
