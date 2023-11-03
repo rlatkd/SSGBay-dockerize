@@ -14,11 +14,11 @@ function CreatePage() {
     userId:''
   });
 
-  const refendTime = useRef(null);
-  const refitemName = useRef(null);
-  const refitemContent = useRef(null);
-  const refitemPrice = useRef(null);
-  const refitemImage = useRef(null);
+  const refendTime = useRef();
+  const refitemName = useRef();
+  const refitemContent = useRef();
+  const refitemPrice = useRef();
+  const refitemImage = useRef();
   const [imagePreview, setImagePreview] = useState('');
   const userId = localStorage.getItem('userId');
   const navigate = useNavigate();

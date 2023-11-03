@@ -12,11 +12,11 @@ function SignupPage() {
       userNickname: ''
     });
 
-    const refUserId = useRef(null);
-    const refUserPwd1 = useRef(null);
-    const refUserPwd2 = useRef(null);
-    const refUserPhone = useRef(null);
-    const refUserNickname = useRef(null);
+    const refUserId = useRef();
+    const refUserPwd1 = useRef();
+    const refUserPwd2 = useRef();
+    const refUserPhone = useRef();
+    const refUserNickname = useRef();
 
     const handlerChange = (e) => {
       const { name, value } = e.target;
