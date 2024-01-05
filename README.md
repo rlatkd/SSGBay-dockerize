@@ -2,7 +2,7 @@
 
 ## 2차 미니프로젝트
 
-### v2 Dockerize
+### Dockerize
 
 ```
 ./client/Dockerfile-react
